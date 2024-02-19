@@ -43,10 +43,10 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
-  "homepage": "/react-image-annotate",
+  "homepage": "https://github.com/TrongNhan30520/react-image-annotate-master.git",
   "repository": {
     "type": "git",
-    "url": "https://github.com/UniversalDataTool/react-image-annotate.git"
+    "url": "https://github.com/TrongNhan30520/react-image-annotate-master.git"
   },
   "scripts": {
     "start": "react-scripts start",
