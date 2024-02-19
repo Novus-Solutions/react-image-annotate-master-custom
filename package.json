@@ -1,10 +1,5 @@
 {
   "name": "react-image-annotate-master",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "files": [
-    "lib"
-  ],
   "version": "2.0.0",
   "dependencies": {
     "@emotion/react": "^11.7.0",
@@ -65,8 +60,7 @@
     "build:gh-pages": "CI=false react-scripts build && mkdir build/demo && cp build/index.html build/demo/index.html",
     "gh-pages": "npm run build:gh-pages && gh-pages -d build",
     "prettier": "prettier --write \"src/**/*.js\"",
-    "prettier:test": "prettier --check \"src/**/*.js\"",
-    "prepare": "npm run build"
+    "prettier:test": "prettier --check \"src/**/*.js\""
   },
   "eslintConfig": {
     "extends": "react-app"
