@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme) => ({
     transition: "opacity 500ms",
     "&.highlighted": {
       zIndex: 3,
+      filter:
+        "invert(40%) sepia(50%) saturate(1928%) hue-rotate(350deg) brightness(94%) contrast(89%)", //customize
     },
     "&:not(.highlighted)": {
       opacity: 0,
@@ -88,6 +90,7 @@ export const HighlightBox = ({
     <ThemeProvider theme={theme}>
       <svg
         key={r.id}
+        id={r.id}
         className={classnames(classes.highlightBox, {
           highlighted: r.highlighted,
         })}
@@ -103,9 +106,11 @@ export const HighlightBox = ({
                 ) {
                   return onBeginMovePoint(r)
                 }
-                if (e.button === 0 && !createWithPrimary)
+                if (e.button === 0 && !createWithPrimary) {
                   return onSelectRegion(r)
-                mouseEvents.onMouseDown(e)
+                }
+                onSelectRegion(r)
+                //mouseEvents.onMouseDown(e)
               },
             }
           : {})}

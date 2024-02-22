@@ -300,12 +300,12 @@ export const MainLayout = ({
                   name: "zoom",
                   helperText:
                     "Zoom In/Out (scroll)" + getHotkeyHelpText("zoom_tool"),
-                  alwaysShowing: true,
+                  alwaysShowing: false,
                 },
                 {
                   name: "show-tags",
                   helperText: "Show / Hide Tags",
-                  alwaysShowing: true,
+                  alwaysShowing: false,
                 },
                 {
                   name: "create-point",
@@ -348,56 +348,56 @@ export const MainLayout = ({
                 .filter(
                   (a) => a.alwaysShowing || state.enabledTools.includes(a.name)
                 )}
-              rightSidebarItems={[
-                debugModeOn && (
-                  <DebugBox state={debugModeOn} lastAction={state.lastAction} />
-                ),
-                state.taskDescription && (
-                  <TaskDescription description={state.taskDescription} />
-                ),
-                state.regionClsList && (
-                  <ClassSelectionMenu
-                    selectedCls={state.selectedCls}
-                    regionClsList={state.regionClsList}
-                    onSelectCls={action("SELECT_CLASSIFICATION", "cls")}
-                  />
-                ),
-                state.labelImages && (
-                  <TagsSidebarBox
-                    currentImage={activeImage}
-                    imageClsList={state.imageClsList}
-                    imageTagList={state.imageTagList}
-                    onChangeImage={action("CHANGE_IMAGE", "delta")}
-                    expandedByDefault
-                  />
-                ),
-                // (state.images?.length || 0) > 1 && (
-                //   <ImageSelector
-                //     onSelect={action("SELECT_REGION", "region")}
-                //     images={state.images}
-                //   />
-                // ),
-                <RegionSelector
-                  regions={activeImage ? activeImage.regions : emptyArr}
-                  onSelectRegion={action("SELECT_REGION", "region")}
-                  onDeleteRegion={action("DELETE_REGION", "region")}
-                  onChangeRegion={action("CHANGE_REGION", "region")}
-                />,
-                state.keyframes && (
-                  <KeyframesSelector
-                    onChangeVideoTime={action("CHANGE_VIDEO_TIME", "newTime")}
-                    onDeleteKeyframe={action("DELETE_KEYFRAME", "time")}
-                    onChangeCurrentTime={action("CHANGE_VIDEO_TIME", "newTime")}
-                    currentTime={state.currentVideoTime}
-                    duration={state.videoDuration}
-                    keyframes={state.keyframes}
-                  />
-                ),
-                <HistorySidebarBox
-                  history={state.history}
-                  onRestoreHistory={action("RESTORE_HISTORY")}
-                />,
-              ].filter(Boolean)}
+              // rightSidebarItems={[
+              //   debugModeOn && (
+              //     <DebugBox state={debugModeOn} lastAction={state.lastAction} />
+              //   ),
+              //   state.taskDescription && (
+              //     <TaskDescription description={state.taskDescription} />
+              //   ),
+              //   state.regionClsList && (
+              //     <ClassSelectionMenu
+              //       selectedCls={state.selectedCls}
+              //       regionClsList={state.regionClsList}
+              //       onSelectCls={action("SELECT_CLASSIFICATION", "cls")}
+              //     />
+              //   ),
+              //   state.labelImages && (
+              //     <TagsSidebarBox
+              //       currentImage={activeImage}
+              //       imageClsList={state.imageClsList}
+              //       imageTagList={state.imageTagList}
+              //       onChangeImage={action("CHANGE_IMAGE", "delta")}
+              //       expandedByDefault
+              //     />
+              //   ),
+              //   // (state.images?.length || 0) > 1 && (
+              //   //   <ImageSelector
+              //   //     onSelect={action("SELECT_REGION", "region")}
+              //   //     images={state.images}
+              //   //   />
+              //   // ),
+              //   <RegionSelector
+              //     regions={activeImage ? activeImage.regions : emptyArr}
+              //     onSelectRegion={action("SELECT_REGION", "region")}
+              //     onDeleteRegion={action("DELETE_REGION", "region")}
+              //     onChangeRegion={action("CHANGE_REGION", "region")}
+              //   />,
+              //   state.keyframes && (
+              //     <KeyframesSelector
+              //       onChangeVideoTime={action("CHANGE_VIDEO_TIME", "newTime")}
+              //       onDeleteKeyframe={action("DELETE_KEYFRAME", "time")}
+              //       onChangeCurrentTime={action("CHANGE_VIDEO_TIME", "newTime")}
+              //       currentTime={state.currentVideoTime}
+              //       duration={state.videoDuration}
+              //       keyframes={state.keyframes}
+              //     />
+              //   ),
+              //   <HistorySidebarBox
+              //     history={state.history}
+              //     onRestoreHistory={action("RESTORE_HISTORY")}
+              //   />,
+              // ].filter(Boolean)}
             >
               {canvas}
             </Workspace>

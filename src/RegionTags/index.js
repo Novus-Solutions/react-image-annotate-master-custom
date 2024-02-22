@@ -39,7 +39,7 @@ export const RegionTags = ({
       let margin = 8
       if (region.highlighted && region.type === "box") margin += 6
       const labelBoxHeight =
-        region.editingLabels && !region.locked ? 170 : region.tags ? 60 : 50
+        region.editingLabels && !region.locked ? 300 : region.tags ? 60 : 50
       const displayOnTop = pbox.y > labelBoxHeight
 
       const coords = displayOnTop

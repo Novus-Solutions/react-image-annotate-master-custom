@@ -55,6 +55,8 @@ type Props = {
   hideSettings?: boolean,
   hideFullScreen?: boolean,
   hideSave?: boolean,
+  onCreateAnno: () => any,
+  onClickAnno: () => any,
 }
 
 export const Annotator = ({
@@ -99,6 +101,8 @@ export const Annotator = ({
   hideFullScreen,
   hideSave,
   allowComments,
+  onCreateAnno,
+  onClickAnno,
 }: Props) => {
   if (typeof selectedImage === "string") {
     selectedImage = (images || []).findIndex((img) => img.src === selectedImage)
@@ -135,6 +139,8 @@ export const Annotator = ({
       videoName,
       keypointDefinitions,
       allowComments,
+      onCreateAnno,
+      onClickAnno,
       ...(annotationType === "image"
         ? {
             selectedImage,

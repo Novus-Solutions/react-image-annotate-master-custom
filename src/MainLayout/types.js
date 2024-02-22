@@ -80,6 +80,8 @@ export type MainLayoutStateBase = {|
   enabledTools: Array<string>,
   history: Array<{ time: Date, state: MainLayoutState, name: string }>,
   keypointDefinitions: KeypointsDefinition,
+  onCreateAnno: function,
+  onClickAnno: function,
 |}
 
 export type MainLayoutImageAnnotationState = {|
