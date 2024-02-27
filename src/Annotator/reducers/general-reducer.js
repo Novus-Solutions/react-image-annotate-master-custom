@@ -170,7 +170,7 @@ export default (state: MainLayoutState, action: Action) => {
         highlighted: r.id === region.id,
         editingLabels: r.id === region.id,
       }))
-      state.onClickAnno(regions)
+      state.onClickAnno(regions[regionIndex])
       return setIn(state, [...pathToActiveImage, "regions"], regions)
     }
     case "BEGIN_MOVE_POINT": {
