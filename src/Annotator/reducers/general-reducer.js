@@ -162,7 +162,6 @@ export default (state: MainLayoutState, action: Action) => {
     }
     case "SELECT_REGION": {
       const { region } = action
-      console.log("SELECT_REGION")
       const regionIndex = getRegionIndex(action.region)
       if (regionIndex === null) return state
       const regions = [...(activeImage.regions || [])].map((r) => ({
@@ -546,7 +545,6 @@ export default (state: MainLayoutState, action: Action) => {
             id: getRandomId(),
             cls: defaultRegionCls,
           }
-          console.log("MOUSE_DOWN")
           state.onCreateAnno(newRegion)
           break
         }

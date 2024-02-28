@@ -76,6 +76,7 @@ export const MainLayout = ({
   hideNext = false,
   hidePrev = false,
   hideClone = false,
+  hideRegionLabel = false,
   hideSettings = false,
   hideFullScreen = false,
   hideSave = false,
@@ -141,6 +142,7 @@ export const MainLayout = ({
       autoSegmentationOptions={state.autoSegmentationOptions}
       showTags={state.showTags}
       allowedArea={state.allowedArea}
+      hideRegionLabel={hideRegionLabel}
       modifyingAllowedArea={state.selectedTool === "modify-allowed-area"}
       regionClsList={state.regionClsList}
       regionTagList={state.regionTagList}

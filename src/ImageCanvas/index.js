@@ -53,6 +53,7 @@ type Props = {
   zoomWithPrimary?: boolean,
   createWithPrimary?: boolean,
   showTags?: boolean,
+  hideRegionLabel?: boolean,
   realSize?: { width: number, height: number, unitName: string },
   showCrosshairs?: boolean,
   showMask?: boolean,
@@ -106,6 +107,7 @@ export const ImageCanvas = ({
   videoTime,
   realSize,
   showTags,
+  hideRegionLabel,
   onMouseMove = (p) => null,
   onMouseDown = (p) => null,
   onMouseUp = (p) => null,
@@ -376,8 +378,11 @@ export const ImageCanvas = ({
             showHighlightBox={showHighlightBox}
           />
         )}
-        {/* {imageLoaded && showTags && !dragging && (  customize
-          <PreventScrollToParents key="regionTags">
+        {imageLoaded && showTags && !dragging && (
+          <PreventScrollToParents
+            style={{ display: hideRegionLabel ? "none" : "" }}
+            key="regionTags"
+          >
             <RegionTags
               regions={regions}
               projectRegionBox={projectRegionBox}
@@ -395,7 +400,7 @@ export const ImageCanvas = ({
               allowComments={allowComments}
             />
           </PreventScrollToParents>
-        )} */}
+        )}
         {!showTags && highlightedRegion && (
           <div key="topLeftTag" className={classes.fixedRegionLabel}>
             <RegionLabel

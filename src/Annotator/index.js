@@ -52,6 +52,7 @@ type Props = {
   hideNext?: boolean,
   hidePrev?: boolean,
   hideClone?: boolean,
+  hideRegionLabel?: boolean,
   hideSettings?: boolean,
   hideFullScreen?: boolean,
   hideSave?: boolean,
@@ -97,6 +98,7 @@ export const Annotator = ({
   hideNext,
   hidePrev,
   hideClone,
+  hideRegionLabel,
   hideSettings,
   hideFullScreen,
   hideSave,
@@ -201,6 +203,7 @@ export const Annotator = ({
         hideNext={hideNext}
         hidePrev={hidePrev}
         hideClone={hideClone}
+        hideRegionLabel={hideRegionLabel}
         hideSettings={hideSettings}
         hideFullScreen={hideFullScreen}
         hideSave={hideSave}

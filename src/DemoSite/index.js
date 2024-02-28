@@ -21,10 +21,12 @@ export default () => {
           <button
             onClick={(e) => {
               e.stopPropagation()
-              const element = document.getElementById("2050877559569606")
+              const element = document.getElementById(
+                "delete-region-7725661632635865"
+              )
               if (element) {
                 var clickEvent = document.createEvent("MouseEvents")
-                clickEvent.initEvent("mousedown", true, true)
+                clickEvent.initEvent("click", true, true)
                 element.dispatchEvent(clickEvent)
               }
             }}
