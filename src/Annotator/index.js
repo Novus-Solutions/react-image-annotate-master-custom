@@ -56,6 +56,8 @@ type Props = {
   hideSettings?: boolean,
   hideFullScreen?: boolean,
   hideSave?: boolean,
+  hideRightSidebar?: boolean,
+  hideLeftSidebar?: boolean,
   onCreateAnno: () => any,
   onClickAnno: () => any,
 }
@@ -102,6 +104,8 @@ export const Annotator = ({
   hideSettings,
   hideFullScreen,
   hideSave,
+  hideRightSidebar,
+  hideLeftSidebar,
   allowComments,
   onCreateAnno,
   onClickAnno,
@@ -207,6 +211,8 @@ export const Annotator = ({
         hideSettings={hideSettings}
         hideFullScreen={hideFullScreen}
         hideSave={hideSave}
+        hideRightSidebar={hideRightSidebar}
+        hideLeftSidebar={hideLeftSidebar}
       />
     </SettingsProvider>
   )
