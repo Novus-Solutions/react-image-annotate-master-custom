@@ -71,7 +71,6 @@ export default ({
     },
     onMouseDown: (e, specialEvent = {}) => {
       e.preventDefault()
-
       if (
         e.button === 1 ||
         e.button === 2 ||

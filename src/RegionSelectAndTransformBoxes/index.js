@@ -221,12 +221,16 @@ export const RegionSelectAndTransformBox = memo(
 
 export const RegionSelectAndTransformBoxes = memo(
   (props) => {
-    return props.regions
-      .filter((r) => r.visible || r.visible === undefined)
-      .filter((r) => !r.locked)
-      .map((r, i) => {
-        return <RegionSelectAndTransformBox key={r.id} {...props} region={r} />
-      })
+    return (
+      props.regions
+        .filter((r) => r.visible || r.visible === undefined)
+        //.filter((r) => !r.locked)
+        .map((r, i) => {
+          return (
+            <RegionSelectAndTransformBox key={r.id} {...props} region={r} />
+          )
+        })
+    )
   },
   (n, p) => n.regions === p.regions && n.mat === p.mat
 )
