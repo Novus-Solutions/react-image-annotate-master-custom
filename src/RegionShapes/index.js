@@ -16,7 +16,7 @@ const RegionComponents = {
         }
         strokeWidth={2}
         stroke={region.color}
-        fill={region?.highlighted ? region.color : "transparent"}
+        fill={region.color}
       />
     </g>
   )),
