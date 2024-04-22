@@ -545,8 +545,6 @@ export default (state: MainLayoutState, action: Action) => {
             id: getRandomId(),
             cls: defaultRegionCls,
           }
-
-          state.onCreateAnno(newRegion) // customize
           break
         }
         case "create-box": {
@@ -673,6 +671,7 @@ export default (state: MainLayoutState, action: Action) => {
         const regions = [...(getIn(state, pathToActiveImage).regions || [])]
         return setIn(state, [...pathToActiveImage, "regions"], regions)
       } else {
+        state.onCreateAnno(newRegion) // customize
         const regions = [...(getIn(state, pathToActiveImage).regions || [])]
           .map((r) =>
             setIn(r, ["editingLabels"], false).setIn(["highlighted"], false)
