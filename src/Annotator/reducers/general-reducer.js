@@ -536,6 +536,7 @@ export default (state: MainLayoutState, action: Action) => {
         case "create-point": {
           state = saveToHistory(state, "Create Point")
           newRegion = {
+            new: true,
             type: "point",
             x,
             y,
@@ -663,11 +664,20 @@ export default (state: MainLayoutState, action: Action) => {
           break
       }
 
-      const regions = [...(getIn(state, pathToActiveImage).regions || [])]
-        .map((r) =>
-          setIn(r, ["editingLabels"], false).setIn(["highlighted"], false)
-        )
-        .concat(newRegion ? [newRegion] : [])
+      let regions = [...(getIn(state, pathToActiveImage).regions || [])].map(
+        (r) => setIn(r, ["editingLabels"], false).setIn(["highlighted"], false)
+      )
+      if (
+        !getIn(state, pathToActiveImage).regions[
+          getIn(state, pathToActiveImage).regions.length - 1
+        ]?.new
+      ) {
+        regions = [...(getIn(state, pathToActiveImage).regions || [])]
+          .map((r) =>
+            setIn(r, ["editingLabels"], false).setIn(["highlighted"], false)
+          )
+          .concat(newRegion ? [newRegion] : [])
+      }
 
       return setIn(state, [...pathToActiveImage, "regions"], regions)
     }

@@ -36,7 +36,7 @@ export default () => {
           <Annotator //customize
             {...(annotatorProps: any)}
             onCreateAnno={(anno) => {
-              console.log("Annotator created: ", JSON.stringify(anno))
+              console.log("Annotator created: ", anno)
             }}
             onClickAnno={(anno) => {
               console.log("Annotator click: ", anno)
