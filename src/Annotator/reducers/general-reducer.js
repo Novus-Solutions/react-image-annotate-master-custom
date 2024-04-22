@@ -536,7 +536,6 @@ export default (state: MainLayoutState, action: Action) => {
         case "create-point": {
           state = saveToHistory(state, "Create Point")
           newRegion = {
-            new: true,
             type: "point",
             x,
             y,
@@ -546,6 +545,7 @@ export default (state: MainLayoutState, action: Action) => {
             id: getRandomId(),
             cls: defaultRegionCls,
           }
+
           state.onCreateAnno(newRegion) // customize
           break
         }
@@ -677,7 +677,7 @@ export default (state: MainLayoutState, action: Action) => {
           .map((r) =>
             setIn(r, ["editingLabels"], false).setIn(["highlighted"], false)
           )
-          .concat(newRegion ? [newRegion] : [])
+          .concat(newRegion ? [{ ...newRegion, new: true }] : [])
       }
 
       return setIn(state, [...pathToActiveImage, "regions"], regions)
