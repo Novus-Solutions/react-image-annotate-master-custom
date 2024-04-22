@@ -668,6 +668,7 @@ export default (state: MainLayoutState, action: Action) => {
         (r) => setIn(r, ["editingLabels"], false).setIn(["highlighted"], false)
       )
       if (
+        // customize create only one annotation
         !getIn(state, pathToActiveImage).regions[
           getIn(state, pathToActiveImage).regions.length - 1
         ]?.new
