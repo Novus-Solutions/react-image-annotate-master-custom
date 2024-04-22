@@ -666,7 +666,7 @@ export default (state: MainLayoutState, action: Action) => {
         // customize create only one annotation
         getIn(state, pathToActiveImage).regions[
           getIn(state, pathToActiveImage).regions.length - 1
-        ]?.new
+        ]?.isNew
       ) {
         const regions = [...(getIn(state, pathToActiveImage).regions || [])]
         return setIn(state, [...pathToActiveImage, "regions"], regions)
@@ -676,7 +676,7 @@ export default (state: MainLayoutState, action: Action) => {
           .map((r) =>
             setIn(r, ["editingLabels"], false).setIn(["highlighted"], false)
           )
-          .concat(newRegion ? [{ ...newRegion, new: true }] : [])
+          .concat(newRegion ? [{ ...newRegion, isNew: true }] : [])
         return setIn(state, [...pathToActiveImage, "regions"], regions)
       }
     }
