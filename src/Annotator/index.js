@@ -107,7 +107,7 @@ export const Annotator = ({
   hideRightSidebar,
   hideLeftSidebar,
   allowComments,
-  onCreateAnno,
+  onCreateAnno, //customize
   onClickAnno,
 }: Props) => {
   if (typeof selectedImage === "string") {
@@ -211,7 +211,7 @@ export const Annotator = ({
         hideSettings={hideSettings}
         hideFullScreen={hideFullScreen}
         hideSave={hideSave}
-        hideRightSidebar={hideRightSidebar}
+        hideRightSidebar={hideRightSidebar} //customize
         hideLeftSidebar={hideLeftSidebar}
       />
     </SettingsProvider>

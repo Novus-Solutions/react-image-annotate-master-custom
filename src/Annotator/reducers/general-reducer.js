@@ -169,7 +169,7 @@ export default (state: MainLayoutState, action: Action) => {
         highlighted: r.id === region.id,
         editingLabels: r.id === region.id,
       }))
-      state.onClickAnno(regions[regionIndex])
+      state.onClickAnno(regions[regionIndex]) //customize
       return setIn(state, [...pathToActiveImage, "regions"], regions)
     }
     case "BEGIN_MOVE_POINT": {
@@ -545,7 +545,7 @@ export default (state: MainLayoutState, action: Action) => {
             id: getRandomId(),
             cls: defaultRegionCls,
           }
-          state.onCreateAnno(newRegion)
+          state.onCreateAnno(newRegion) // customize
           break
         }
         case "create-box": {

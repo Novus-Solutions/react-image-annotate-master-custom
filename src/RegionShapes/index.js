@@ -8,6 +8,7 @@ function clamp(num, min, max) {
 }
 
 const RegionComponents = {
+  //customize
   point: memo(({ region, iw, ih }) => (
     <g transform={`translate(${region.x * iw} ${region.y * ih})`}>
       <path
