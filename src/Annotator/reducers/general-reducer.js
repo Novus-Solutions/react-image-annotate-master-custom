@@ -664,23 +664,21 @@ export default (state: MainLayoutState, action: Action) => {
           break
       }
 
-      let regions = [...(getIn(state, pathToActiveImage).regions || [])].map(
-        (r) => setIn(r, ["editingLabels"], false).setIn(["highlighted"], false)
-      )
       if (
         // customize create only one annotation
-        !getIn(state, pathToActiveImage).regions[
+        getIn(state, pathToActiveImage).regions[
           getIn(state, pathToActiveImage).regions.length - 1
         ]?.new
       ) {
-        regions = [...(getIn(state, pathToActiveImage).regions || [])]
+        return state
+      } else {
+        const regions = [...(getIn(state, pathToActiveImage).regions || [])]
           .map((r) =>
             setIn(r, ["editingLabels"], false).setIn(["highlighted"], false)
           )
           .concat(newRegion ? [{ ...newRegion, new: true }] : [])
+        return setIn(state, [...pathToActiveImage, "regions"], regions)
       }
-
-      return setIn(state, [...pathToActiveImage, "regions"], regions)
     }
     case "MOUSE_UP": {
       const { x, y } = action
