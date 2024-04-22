@@ -670,7 +670,8 @@ export default (state: MainLayoutState, action: Action) => {
           getIn(state, pathToActiveImage).regions.length - 1
         ]?.new
       ) {
-        return state
+        const regions = [...(getIn(state, pathToActiveImage).regions || [])]
+        return setIn(state, [...pathToActiveImage, "regions"], regions)
       } else {
         const regions = [...(getIn(state, pathToActiveImage).regions || [])]
           .map((r) =>
