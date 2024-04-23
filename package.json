@@ -1,6 +1,6 @@
 {
-  "name": "react-image-annotate-master",
-  "version": "4.0.5",
+  "name": "react-image-annotate-master-custom",
+  "version": "0.0.1",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
     "@fortawesome/free-solid-svg-icons": "^5.6.3",
@@ -41,10 +41,10 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
-  "homepage": "https://github.com/TrongNhan30520/react-image-annotate-master.git",
+  "homepage": "https://github.com/Novus-Solutions/react-image-annotate-master-custom.git",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TrongNhan30520/react-image-annotate-master.git"
+    "url": "https://github.com/Novus-Solutions/react-image-annotate-master-custom.git"
   },
   "scripts": {
     "start": "react-scripts start",
