@@ -661,9 +661,9 @@ export default (state: MainLayoutState, action: Action) => {
         default:
           break
       }
-
+      // customize create only one annotation
       if (
-        // customize create only one annotation
+        getIn(state, pathToActiveImage).regions?.length > 0 &&
         getIn(state, pathToActiveImage).regions[
           getIn(state, pathToActiveImage).regions.length - 1
         ]?.isNew
