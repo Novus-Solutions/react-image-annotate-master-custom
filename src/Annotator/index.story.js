@@ -23,7 +23,7 @@ const middlewares = [
 
 storiesOf("Annotator", module)
   .add("Basic", () => (
-    <Annotator
+    <Annotator onCreateAnno={() => {}}
       onExit={actionAddon("onExit")}
       middlewares={middlewares}
       labelImages
@@ -53,7 +53,7 @@ storiesOf("Annotator", module)
     />
   ))
   .add("Basic - Allow Comments", () => (
-    <Annotator
+    <Annotator onCreateAnno={() => {}}
       onExit={actionAddon("onExit")}
       middlewares={middlewares}
       labelImages
@@ -85,7 +85,7 @@ storiesOf("Annotator", module)
   ))
   .add("Fixed Size Container", () => (
     <div style={{ width: 500, height: 500 }}>
-      <Annotator
+      <Annotator onCreateAnno={() => {}}
         onExit={actionAddon("onExit")}
         middlewares={[
           (store) => (next) => (action) => {
@@ -122,7 +122,7 @@ storiesOf("Annotator", module)
   ))
   .add("Shrunk Annotator (Test Fullscreen)", () => (
     <div style={{ padding: 100 }}>
-      <Annotator
+      <Annotator onCreateAnno={() => {}}
         onExit={actionAddon("onExit")}
         regionClsList={["Alpha", "Beta", "Charlie", "Delta"]}
         regionTagList={["tag1", "tag2", "tag3"]}
@@ -143,7 +143,7 @@ storiesOf("Annotator", module)
     </div>
   ))
   .add("Annotator w/o No Region Labels or Image Labels", () => (
-    <Annotator
+    <Annotator onCreateAnno={() => {}}
       onExit={actionAddon("onExit")}
       middlewares={middlewares}
       images={[
@@ -156,7 +156,7 @@ storiesOf("Annotator", module)
     />
   ))
   .add("Annotator with no enabled tools", () => (
-    <Annotator
+    <Annotator onCreateAnno={() => {}}
       onExit={actionAddon("onExit")}
       enabledTools={[]}
       showTags={false}
@@ -171,7 +171,7 @@ storiesOf("Annotator", module)
     />
   ))
   .add("Bounding Box Annotator with output to console.log", () => (
-    <Annotator
+    <Annotator onCreateAnno={() => {}}
       onExit={(out) => {
         window.lastOutput = out
         console.log(out)
@@ -196,7 +196,7 @@ storiesOf("Annotator", module)
     />
   ))
   .add("Bounding Box Annotator with allowed area", () => (
-    <Annotator
+    <Annotator onCreateAnno={() => {}}
       taskDescription={`## Annotate Hands\nDraw a bounding box around each hand.`}
       enabledTools={["select", "create-box"]}
       regionClsList={["Hand", "Face"]}
@@ -213,7 +213,7 @@ storiesOf("Annotator", module)
     />
   ))
   .add("Car Annotation", () => (
-    <Annotator
+    <Annotator onCreateAnno={() => {}}
       onExit={actionAddon("onExit")}
       middlewares={middlewares}
       labelImages
@@ -370,7 +370,7 @@ storiesOf("Annotator", module)
   ))
   .add("Annotator blocks scroll from propagating", () => (
     <div style={{ height: "200vh" }}>
-      <Annotator
+      <Annotator onCreateAnno={() => {}}
         onExit={actionAddon("onExit")}
         showTags={false}
         middlewares={[
@@ -399,7 +399,7 @@ storiesOf("Annotator", module)
         boxSizing: "border-box",
       }}
     >
-      <Annotator
+      <Annotator onCreateAnno={() => {}}
         onExit={actionAddon("onExit")}
         showTags={false}
         middlewares={[
@@ -426,7 +426,7 @@ storiesOf("Annotator", module)
         boxSizing: "border-box",
       }}
     >
-      <Annotator
+      <Annotator onCreateAnno={() => {}}
         onExit={actionAddon("onExit")}
         showTags={false}
         middlewares={[
@@ -458,7 +458,7 @@ storiesOf("Annotator", module)
         boxSizing: "border-box",
       }}
     >
-      <Annotator
+      <Annotator onCreateAnno={() => {}}
         onExit={(...args) => {
           console.log(...args)
           actionAddon("onExit")(...args)
@@ -528,7 +528,7 @@ storiesOf("Annotator", module)
     const [selectedImageIndex, changeSelectedImageIndex] = useState(0)
 
     return (
-      <Annotator
+      <Annotator onCreateAnno={() => {}}
         onExit={actionAddon("onExit")}
         onNextImage={() => {
           actionAddon("onNextImage")()
@@ -592,7 +592,7 @@ storiesOf("Annotator", module)
     }
 
     return (
-      <Annotator
+      <Annotator onCreateAnno={() => {}}
         onExit={actionAddon("onExit")}
         labelImages
         selectedImage={images[0]}
@@ -619,7 +619,7 @@ storiesOf("Annotator", module)
       <HotKeys keyMap={defaultKeyMap}>
         <div>
           <div style={{ height: 600 }}>
-            <Annotator
+            <Annotator onCreateAnno={() => {}}
               onExit={actionAddon("onExit")}
               regionClsList={["Alpha", "Beta", "Charlie", "Delta"]}
               imageClsList={["Alpha", "Beta", "Charlie", "Delta"]}
@@ -639,7 +639,7 @@ storiesOf("Annotator", module)
             />
           </div>
           <div style={{ height: 600 }}>
-            <Annotator
+            <Annotator onCreateAnno={() => {}}
               onExit={actionAddon("onExit")}
               middlewares={[
                 (store) => (next) => (action) => {
@@ -661,7 +661,7 @@ storiesOf("Annotator", module)
     )
   })
   .add("CORs Error (Pixel Segmentation)", () => (
-    <Annotator
+    <Annotator onCreateAnno={() => {}}
       onExit={actionAddon("onExit")}
       middlewares={middlewares}
       labelImages
@@ -676,7 +676,7 @@ storiesOf("Annotator", module)
     />
   ))
   .add("Modify Allowed Area", () => (
-    <Annotator
+    <Annotator onCreateAnno={() => {}}
       onExit={actionAddon("onExit")}
       middlewares={middlewares}
       labelImages
@@ -693,7 +693,7 @@ storiesOf("Annotator", module)
     />
   ))
   .add("Hide Next, Hide Header Text", () => (
-    <Annotator
+    <Annotator onCreateAnno={() => {}}
       onExit={actionAddon("onExit")}
       labelImages
       hideNext
@@ -710,7 +710,7 @@ storiesOf("Annotator", module)
     />
   ))
   .add("Hide Header", () => (
-    <Annotator
+    <Annotator onCreateAnno={() => {}}
       onExit={actionAddon("onExit")}
       labelImages
       hideHeader
