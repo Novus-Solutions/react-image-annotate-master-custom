@@ -36,6 +36,7 @@ import VideoOrImageCanvasBackground from "../VideoOrImageCanvasBackground"
 import useEventCallback from "use-event-callback"
 import RegionShapes from "../RegionShapes"
 import useWasdMode from "./use-wasd-mode"
+import { useSettings } from "../SettingsProvider"
 
 const theme = createTheme()
 const useStyles = makeStyles((theme) => styles)
@@ -156,6 +157,7 @@ export const ImageCanvas = ({
   const [mat, changeMat] = useRafState(getDefaultMat())
   const maskImages = useRef({})
   const windowSize = useWindowSize()
+  const settings = useSettings()
 
   const getLatestMat = useEventCallback(() => mat)
   useWasdMode({ getLatestMat, changeMat })
@@ -337,6 +339,12 @@ export const ImageCanvas = ({
               : "zoom-in"
             : undefined,
         }}
+        // onMouseLeave={()=> {
+        //   settings.changeSetting("showCrosshairs" , false)
+        // }}
+        // onMouseEnter={()=> {
+        //   settings.changeSetting("showCrosshairs", true)
+        // }}
       >
         {showCrosshairs && (
           <Crosshairs key="crossHairs" mousePosition={mousePosition} />

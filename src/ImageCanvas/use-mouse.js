@@ -159,6 +159,7 @@ export default ({
       zoomIn(direction, mousePosition.current)
       // e.preventDefault()
     },
+  
     onContextMenu: (e) => {
       e.preventDefault()
     },
