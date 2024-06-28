@@ -36,10 +36,8 @@ export default () => {
           <Annotator //customize
             {...(annotatorProps: any)}
             onCreateAnno={(anno) => {
-              console.log("Annotator created: ", anno)
             }}
             onClickAnno={(anno) => {
-              console.log("Annotator click: ", anno)
             }}
             onExit={(output) => {
               let checkOutside = false
@@ -53,7 +51,6 @@ export default () => {
               } else {
                 changeLastOutput(output.images[0].regions)
               }
-              console.log(output.images[0].regions)
             }}
           />
         </ErrorBoundaryDialog>

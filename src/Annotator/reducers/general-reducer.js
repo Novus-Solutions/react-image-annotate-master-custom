@@ -669,11 +669,8 @@ export default (state: MainLayoutState, action: Action) => {
         ]?.isNew
       ) {
         const regions = [...(getIn(state, pathToActiveImage).regions || [])]
-        console.log(state , "state")
-        console.log(  getIn(state, pathToActiveImage) , "pathToActiveImage")
         return setIn(state, [...pathToActiveImage, "regions"], regions)
       } else {
-        console.log(3333333333333)
 
         state.onCreateAnno(newRegion) // customize
         const regions = [...(getIn(state, pathToActiveImage).regions || [])]
