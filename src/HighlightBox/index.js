@@ -134,6 +134,26 @@ export const HighlightBox = ({
           highlighted: r.highlighted,
         })}
         {...mouseEvents}
+        {...(!zoomWithPrimary && !dragWithPrimary
+          ? {
+              onMouseDown: (e) => {
+                // if (
+                //   !r.locked &&
+                //   r.type === "point" &&
+                //   r.highlighted &&
+                //   e.button === 0
+                // ) {
+                //   return onBeginMovePoint(r)
+                // }
+                if (e.button === 0 && !createWithPrimary) {
+                  return onSelectRegion(r)
+                }
+                onSelectRegion(r)
+
+                mouseEvents.onMouseDown(e)
+              },
+            }
+          : {})}
         style={{
           ...(r.highlighted && {
             pointerEvents: r.type !== "point" ? "none" : undefined,
@@ -152,6 +172,26 @@ export const HighlightBox = ({
           highlighted: r.highlighted,
         })}
         {...mouseEvents}
+        {...(!zoomWithPrimary && !dragWithPrimary
+          ? {
+              onMouseDown: (e) => {
+                // if (
+                //   !r.locked &&
+                //   r.type === "point" &&
+                //   r.highlighted &&
+                //   e.button === 0
+                // ) {
+                //   return onBeginMovePoint(r)
+                // }
+                if (e.button === 0 && !createWithPrimary) {
+                  return onSelectRegion(r)
+                }
+                onSelectRegion(r)
+
+                mouseEvents.onMouseDown(e)
+              },
+            }
+          : {})}
         style={{
           ...(r.highlighted && {
             pointerEvents: r.type !== "point" ? "none" : undefined,
