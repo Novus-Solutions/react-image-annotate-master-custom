@@ -135,6 +135,9 @@ export const HighlightBox = ({
         })}
         {...mouseEvents}
         style={{
+          ...(r.highlighted && {
+            pointerEvents: r.type !== "point" ? "none" : undefined,
+          }),
           position: "absolute",
           ...styleCoordsHorizontal,
         }}
@@ -150,6 +153,9 @@ export const HighlightBox = ({
         })}
         {...mouseEvents}
         style={{
+          ...(r.highlighted && {
+            pointerEvents: r.type !== "point" ? "none" : undefined,
+          }),
           position: "absolute",
           ...styleCoordsVertical,
         }}
