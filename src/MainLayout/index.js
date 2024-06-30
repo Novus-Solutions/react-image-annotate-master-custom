@@ -133,6 +133,7 @@ export const MainLayout = ({
 
   const canvas = (
     <ImageCanvas
+      onClick={() => console.log("3333")}
       {...settings}
       showCrosshairs={
         settings.showCrosshairs &&
@@ -205,7 +206,9 @@ export const MainLayout = ({
   )
 
   const onClickIconSidebarItem = useEventCallback((item) => {
+    console.log(1111)
     dispatch({ type: "SELECT_TOOL", selectedTool: item.name })
+    dispatch({ type: "UNSELECTED_REGION" })
   })
 
   const onClickHeaderItem = useEventCallback((item) => {
@@ -423,6 +426,14 @@ export const MainLayout = ({
                     ].filter(Boolean)
               }
             >
+              <div
+                id="snag_canvas"
+                onMouseDown={() =>
+                  dispatch({
+                    type: "UNSELECTED_REGION",
+                  })
+                }
+              ></div>
               {canvas}
             </Workspace>
             <SettingsDialog

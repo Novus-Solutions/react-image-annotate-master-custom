@@ -228,6 +228,11 @@ export default (state: MainLayoutState, action: Action) => {
         keypointId,
       })
     }
+
+    case "UNSELECTED_REGION": {
+      state = unselectRegions(state)
+      return setIn(state, ["mode"], null)
+    }
     case "ADD_POLYGON_POINT": {
       const { polygon, point, pointIndex } = action
       const regionIndex = getRegionIndex(polygon)

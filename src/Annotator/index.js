@@ -160,6 +160,7 @@ export const Annotator = ({
           }),
     })
   )
+  console.log("🚀 ~ state:", state)
 
   const dispatch = useEventCallback((action: Action) => {
     if (action.type === "HEADER_BUTTON_CLICKED") {

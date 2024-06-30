@@ -22,11 +22,11 @@ export default () => {
             onClick={(e) => {
               e.stopPropagation()
               const element = document.getElementById(
-                "delete-region-7725661632635865"
+                "snag_canvas"
               )
               if (element) {
                 var clickEvent = document.createEvent("MouseEvents")
-                clickEvent.initEvent("click", true, true)
+                clickEvent.initEvent("mousedown", true, true)
                 element.dispatchEvent(clickEvent)
               }
             }}
