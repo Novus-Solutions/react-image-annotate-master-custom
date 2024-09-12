@@ -292,10 +292,10 @@ export const ImageCanvas = ({
     !zoomStart || !zoomEnd
       ? null
       : {
-          ...mat.clone().inverse().applyToPoint(zoomStart.x, zoomStart.y),
-          w: (zoomEnd.x - zoomStart.x) / mat.a,
-          h: (zoomEnd.y - zoomStart.y) / mat.d,
-        }
+        ...mat.clone().inverse().applyToPoint(zoomStart.x, zoomStart.y),
+        w: (zoomEnd.x - zoomStart.x) / mat.a,
+        h: (zoomEnd.y - zoomStart.y) / mat.d,
+      }
   if (zoomBox) {
     if (zoomBox.w < 0) {
       zoomBox.x += zoomBox.w
@@ -330,21 +330,21 @@ export const ImageCanvas = ({
           cursor: createWithPrimary
             ? "crosshair"
             : dragging
-            ? "grabbing"
-            : dragWithPrimary
-            ? "grab"
-            : zoomWithPrimary
-            ? mat.a < 1
-              ? "zoom-out"
-              : "zoom-in"
-            : undefined,
+              ? "grabbing"
+              : dragWithPrimary
+                ? "grab"
+                : zoomWithPrimary
+                  ? mat.a < 1
+                    ? "zoom-out"
+                    : "zoom-in"
+                  : undefined,
         }}
-        // onMouseLeave={()=> {
-        //   settings.changeSetting("showCrosshairs" , false)
-        // }}
-        // onMouseEnter={()=> {
-        //   settings.changeSetting("showCrosshairs", true)
-        // }}
+      // onMouseLeave={()=> {
+      //   settings.changeSetting("showCrosshairs" , false)
+      // }}
+      // onMouseEnter={()=> {
+      //   settings.changeSetting("showCrosshairs", true)
+      // }}
       >
         {showCrosshairs && (
           <Crosshairs key="crossHairs" mousePosition={mousePosition} />
@@ -356,19 +356,19 @@ export const ImageCanvas = ({
               !modifyingAllowedArea || !allowedArea
                 ? regions
                 : [
-                    {
-                      type: "box",
-                      id: "$$allowed_area",
-                      cls: "allowed_area",
-                      highlighted: true,
-                      x: allowedArea.x,
-                      y: allowedArea.y,
-                      w: allowedArea.w,
-                      h: allowedArea.h,
-                      visible: true,
-                      color: "#ff0",
-                    },
-                  ]
+                  {
+                    type: "box",
+                    id: "$$allowed_area",
+                    cls: "allowed_area",
+                    highlighted: true,
+                    x: allowedArea.x,
+                    y: allowedArea.y,
+                    w: allowedArea.w,
+                    h: allowedArea.h,
+                    visible: true,
+                    color: "#ff0",
+                  },
+                ]
             }
             mouseEvents={mouseEvents}
             projectRegionBox={projectRegionBox}
@@ -464,17 +464,17 @@ export const ImageCanvas = ({
                 regions={regions}
               />
             )}
-            <canvas
-              style={{ opacity: 0.25 }}
-              className={classes.canvas}
-              ref={canvasEl}
-            />
             <RegionShapes
               mat={mat}
               keypointDefinitions={keypointDefinitions}
               imagePosition={imagePosition}
               regions={regions}
               fullSegmentationMode={fullImageSegmentationMode}
+            />
+            <canvas
+              style={{ opacity: 0.25 }}
+              className={classes.canvas}
+              ref={canvasEl}
             />
             <VideoOrImageCanvasBackground
               videoPlaying={videoPlaying}
