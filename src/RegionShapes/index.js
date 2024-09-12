@@ -19,6 +19,7 @@ const RegionComponents = {
         stroke="#E45B21"
         fill="#E45B21"
       />
+        <text x="15" y="15" fill="red" fontSize="12">{region?.sid}</text>
     </g>
   )),
   line: memo(({ region, iw, ih }) => (
