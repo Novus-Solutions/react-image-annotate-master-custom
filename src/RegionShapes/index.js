@@ -2,7 +2,14 @@
 
 import React, { memo } from "react"
 import colorAlpha from "color-alpha"
-import "./regionShape.css"
+
+const noSelectStyle = {
+  WebkitUserSelect: 'none',  /* Chrome, Safari, Opera */
+  MozUserSelect: 'none',     /* Firefox */
+  MsUserSelect: 'none',      /* Internet Explorer/Edge */
+  userSelect: 'none',        /* Non-prefixed version */
+};
+
 function clamp(num, min, max) {
   return num <= min ? min : num >= max ? max : num
 }
@@ -223,8 +230,9 @@ export const WrappedRegionListSid = memo(
               top: r.y * ih + 18,
               fontSize: '13px',
               fontWeight: 500,
+              ...noSelectStyle
             }}
-            className="noselect"
+           
             >
               {r?.sid && `#${r?.sid}`}
             </div></>
