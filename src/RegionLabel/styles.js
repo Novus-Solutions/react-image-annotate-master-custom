@@ -10,7 +10,7 @@ export default {
     opacity: 0.5,
     "&:hover": {
       opacity: 0.9,
-      cursor: "pointer",
+      // cursor: "pointer",
     },
     "&.highlighted": {
       opacity: 0.9,

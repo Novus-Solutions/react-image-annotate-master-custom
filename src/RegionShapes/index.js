@@ -3,13 +3,6 @@
 import React, { memo } from "react"
 import colorAlpha from "color-alpha"
 
-const noSelectStyle = {
-  WebkitUserSelect: 'none',  /* Chrome, Safari, Opera */
-  MozUserSelect: 'none',     /* Firefox */
-  MsUserSelect: 'none',      /* Internet Explorer/Edge */
-  userSelect: 'none',        /* Non-prefixed version */
-};
-
 function clamp(num, min, max) {
   return num <= min ? min : num >= max ? max : num
 }
@@ -17,24 +10,22 @@ function clamp(num, min, max) {
 const RegionComponents = {
   //customize
   point: memo(({ region, iw, ih }) => (
-    <>
-      <g transform={`translate(${region.x * iw} ${region.y * ih})`}>
+    <g transform={`translate(${region.x * iw} ${region.y * ih})`}>
+      <path
 
-        <path
+        d={
+          "M 1.866 12.7018 C 4.234 9.7951 9.486 2.7501 9.486 -1.207 C 9.486 -6.0063 5.5922 -9.9 0.793 -9.9 S -7.9 -6.0063 -7.9 -1.207 c 0 3.9571 5.2973 11.0021 7.62 13.9088 c 0.5569 0.6927 1.5892 0.6927 2.1461 0 z M 0.793 -4.1047 A 2.8977 2.8977 90 1 1 0.793 1.6907 a 2.8977 2.8977 90 1 1 0 -5.7953 z"
+        }
+        style={{
+          position: "absolute",
+          zIndex: -1,
+        }}
+        strokeWidth={2}
+        stroke="#E45B21"
+        fill="#E45B21"
+      />
 
-          d={
-            "M 1.866 12.7018 C 4.234 9.7951 9.486 2.7501 9.486 -1.207 C 9.486 -6.0063 5.5922 -9.9 0.793 -9.9 S -7.9 -6.0063 -7.9 -1.207 c 0 3.9571 5.2973 11.0021 7.62 13.9088 c 0.5569 0.6927 1.5892 0.6927 2.1461 0 z M 0.793 -4.1047 A 2.8977 2.8977 90 1 1 0.793 1.6907 a 2.8977 2.8977 90 1 1 0 -5.7953 z"
-          }
-          style={{
-            position: "absolute",
-            zIndex: -1,
-          }}
-          strokeWidth={2}
-          stroke="#E45B21"
-          fill="#E45B21"
-        />
-
-      </g></>
+    </g>
   )),
   line: memo(({ region, iw, ih }) => (
     <g transform={`translate(${region.x1 * iw} ${region.y1 * ih})`}>
@@ -214,33 +205,6 @@ export const WrappedRegionList = memo(
   },
   (n, p) => n.regions === p.regions && n.iw === p.iw && n.ih === p.ih
 )
-export const WrappedRegionListSid = memo(
-  ({ regions, keypointDefinitions, iw, ih, fullSegmentationMode }) => {
-    return regions
-      .filter((r) => r.visible !== false)
-      .map((r) => {
-        return (
-          <>
-
-            <div style={{
-              color: '#800020',
-              position: 'absolute',
-              zIndex: 1000,
-              left: r.x * iw + 18,
-              top: r.y * ih + 18,
-              fontSize: '13px',
-              fontWeight: 500,
-              ...noSelectStyle
-            }}
-           
-            >
-              {r?.sid && `#${r?.sid}`}
-            </div></>
-        )
-      })
-  },
-  (n, p) => n.regions === p.regions && n.iw === p.iw && n.ih === p.ih
-)
 
 export const RegionShapes = ({
   mat,
@@ -253,7 +217,7 @@ export const RegionShapes = ({
   const ih = imagePosition.bottomRight.y - imagePosition.topLeft.y
   if (isNaN(iw) || isNaN(ih)) return null
   return (
-    <><svg
+    <svg
       width={iw}
       height={ih}
       style={{
@@ -275,13 +239,7 @@ export const RegionShapes = ({
         fullSegmentationMode={fullSegmentationMode}
       />
     </svg>
-      <WrappedRegionListSid key="wrapped-region-list-sid"
-        regions={regions}
-        iw={iw}
-        ih={ih}
-        keypointDefinitions={keypointDefinitions}
-        fullSegmentationMode={fullSegmentationMode} />
-    </>
+
   )
 }
 

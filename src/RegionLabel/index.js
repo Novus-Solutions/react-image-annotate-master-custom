@@ -58,20 +58,22 @@ export const RegionLabel = ({
 
   return (
     <ThemeProvider theme={theme}>
-      <Paper
-        onClick={() => (!editing ? onOpen(region) : null)}
+      {region.cls && <Paper
+        // onClick={() => (!editing ? onOpen(region) : null)}
         className={classnames(classes.regionInfo, {
-          highlighted: region.highlighted,
+          highlighted: true,
+          // highlighted: region.highlighted,
         })}
       >
-        <div style={{ display: `${!editing ? "unset" : "none"}` }}>
+        {/* <div style={{ display: `${!editing ? "unset" : "none"}` }}> */}
+        <div style={{ display: `unset` }}>
           {region.cls && (
             <div className="name">
-              <div
+              {/* <div
                 className="circle"
                 style={{ backgroundColor: region.color }}
-              />
-              {region.cls}
+              /> */}
+              {`#${region.cls}`}
             </div>
           )}
           {region.tags && (
@@ -84,7 +86,7 @@ export const RegionLabel = ({
             </div>
           )}
         </div>
-        <div style={{ width: 200, display: `${editing ? "unset" : "none"}` }}>
+        {/* <div style={{ width: 200, display: `${editing ? "unset" : "none"}` }}>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <div
               style={{
@@ -185,8 +187,8 @@ export const RegionLabel = ({
               </Button>
             </div>
           )}
-        </div>
-      </Paper>
+        </div> */}
+      </Paper>}
     </ThemeProvider>
   )
 }
