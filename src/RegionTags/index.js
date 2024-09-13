@@ -49,35 +49,35 @@ export const RegionTags = ({
             top: pbox.y - margin / 2,
           }
         : { left: pbox.x, top: pbox.y + pbox.h + margin / 2 }
-      if (region.locked) {
-        return (
-          <div
-            key={region.id}
-            style={{
-              position: "absolute",
-              ...coords,
-              zIndex: 10 + (region.editingLabels ? 5 : 0),
-            }}
-          >
-            <Paper
-              style={{
-                position: "absolute",
-                left: 0,
-                ...(displayOnTop ? { bottom: 0 } : { top: 0 }),
-                zIndex: 10,
-                backgroundColor: "#fff",
-                borderRadius: 4,
-                padding: 2,
-                paddingBottom: 0,
-                opacity: 0.5,
-                pointerEvents: "none",
-              }}
-            >
-              <LockIcon style={{ width: 16, height: 16, color: "#333" }} />
-            </Paper>
-          </div>
-        )
-      }
+      // if (region.locked) {
+      //   return (
+      //     <div
+      //       key={region.id}
+      //       style={{
+      //         position: "absolute",
+      //         ...coords,
+      //         zIndex: 10 + (region.editingLabels ? 5 : 0),
+      //       }}
+      //     >
+      //       <Paper
+      //         style={{
+      //           position: "absolute",
+      //           left: 0,
+      //           ...(displayOnTop ? { bottom: 0 } : { top: 0 }),
+      //           zIndex: 10,
+      //           backgroundColor: "#fff",
+      //           borderRadius: 4,
+      //           padding: 2,
+      //           paddingBottom: 0,
+      //           opacity: 0.5,
+      //           pointerEvents: "none",
+      //         }}
+      //       >
+      //         <LockIcon style={{ width: 16, height: 16, color: "#333" }} />
+      //       </Paper>
+      //     </div>
+      //   )
+      // }
       return (
         <div
           key={region.id}
