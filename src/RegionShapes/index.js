@@ -18,11 +18,13 @@ const RegionComponents = {
         }
         style={{
           position: "absolute",
-          zIndex: -1,
+          zIndex: 1,
         }}
         strokeWidth={2}
-        stroke="#E45B21"
-        fill="#E45B21"
+        // stroke="#E45B21"
+        // fill="#E45B21"
+        stroke={colorAlpha(region?.color || "#E45B21", 1)}
+        fill={colorAlpha(region?.color || "#E45B21", 1)}
       />
 
     </g>
