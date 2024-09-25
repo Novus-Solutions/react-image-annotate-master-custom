@@ -27,7 +27,7 @@ const RegionComponents = {
         fill={colorAlpha(region?.color || "#E45B21", 1)}
       />
       <circle cx="0.8" cy="-0.5" r="5.817" style={{
-        fill: !region?.isNew ? colorAlpha(region?.severityColor || "#FFF", 1) : colorAlpha(region?.severityColor || "#E45B21", 1)
+        fill: (region?.hideColor || region?.isNew) ? colorAlpha("#E45B21", 1) : colorAlpha(region?.severityColor || "#FFF", 1)
       }} />
     </g>
   )),
@@ -190,7 +190,6 @@ const RegionComponents = {
 
 export const WrappedRegionList = memo(
   ({ regions, keypointDefinitions, iw, ih, fullSegmentationMode }) => {
-    console.log("🚀 ~ regions:", regions)
     return regions
       .filter((r) => r.visible !== false)
       .map((r) => {
