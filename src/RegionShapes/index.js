@@ -14,7 +14,7 @@ const RegionComponents = {
       <path
 
         d={
-          "M 1.866 12.7018 C 4.234 9.7951 9.486 2.7501 9.486 -1.207 C 9.486 -6.0063 5.5922 -9.9 0.793 -9.9 S -7.9 -6.0063 -7.9 -1.207 c 0 3.9571 5.2973 11.0021 7.62 13.9088 c 0.5569 0.6927 1.5892 0.6927 2.1461 0 z M 0.793 -4.1047 A 2.8977 2.8977 90 1 1 0.793 1.6907 a 2.8977 2.8977 90 1 1 0 -5.7953 z"
+          "M 1.866 12.7018 c2.293,-2.759 7.374,-9.452 7.374,-13.202c0,-4.554 -3.766,-8.238 -8.413,-8.238c-4.646,0 -8.413,3.684 -8.413,8.238c0,3.75 5.124,10.443 7.374,13.202c0.539,0.656 1.538,0.656 2.077,0Zm-1.038,-15.957c1.537,0 2.803,1.241 2.803,2.746c0,1.505 -1.266,2.746 -2.803,2.746c-0.006,0 -0.014,0 -0.019,0c-1.537,0 -2.803,-1.241 -2.803,-2.746c0,-1.505 1.266,-2.746 2.803,-2.746c0.006,0 0.014,0 0.019,0Z"
         }
         style={{
           position: "absolute",
@@ -26,7 +26,9 @@ const RegionComponents = {
         stroke={colorAlpha(region?.color || "#E45B21", 1)}
         fill={colorAlpha(region?.color || "#E45B21", 1)}
       />
-
+      <circle cx="0.8" cy="-0.5" r="5.817" style={{
+        fill: !region?.isNew ? colorAlpha(region?.severityColor || "#FFF", 1) : colorAlpha(region?.severityColor || "#E45B21", 1)
+      }} />
     </g>
   )),
   line: memo(({ region, iw, ih }) => (
@@ -188,6 +190,7 @@ const RegionComponents = {
 
 export const WrappedRegionList = memo(
   ({ regions, keypointDefinitions, iw, ih, fullSegmentationMode }) => {
+    console.log("🚀 ~ regions:", regions)
     return regions
       .filter((r) => r.visible !== false)
       .map((r) => {
