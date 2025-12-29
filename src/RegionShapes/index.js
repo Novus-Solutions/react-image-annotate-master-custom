@@ -10,9 +10,9 @@ function clamp(num, min, max) {
 const RegionComponents = {
   //customize
   point: memo(({ region, iw, ih }) => (
-    <g transform={`translate(${region.x * iw} ${region.y * ih})`}>
+    <g transform={`translate(${region.x * iw} ${region.y * ih}) scale(1.5)`}>
       <path
-
+        id={`marker-path-${region.id}`}
         d={
           "M 1.866 12.7018 c2.293,-2.759 7.374,-9.452 7.374,-13.202c0,-4.554 -3.766,-8.238 -8.413,-8.238c-4.646,0 -8.413,3.684 -8.413,8.238c0,3.75 5.124,10.443 7.374,13.202c0.539,0.656 1.538,0.656 2.077,0Zm-1.038,-15.957c1.537,0 2.803,1.241 2.803,2.746c0,1.505 -1.266,2.746 -2.803,2.746c-0.006,0 -0.014,0 -0.019,0c-1.537,0 -2.803,-1.241 -2.803,-2.746c0,-1.505 1.266,-2.746 2.803,-2.746c0.006,0 0.014,0 0.019,0Z"
         }
@@ -26,9 +26,29 @@ const RegionComponents = {
         stroke={colorAlpha(region?.color || "#E45B21", 1)}
         fill={colorAlpha(region?.color || "#E45B21", 1)}
       />
-      <circle cx="0.8" cy="-0.5" r="5.817" style={{
-        fill: (region?.hideColor || region?.isNew) ? colorAlpha("#E45B21", 1) : colorAlpha(region?.severityColor || "#FFF", 1)
-      }} />
+      <circle
+        cx="0.8"
+        cy="-0.5"
+        r="5.817"
+        style={{
+          fill:
+            region?.hideColor || region?.isNew
+              ? colorAlpha("#E45B21", 1)
+              : colorAlpha(region?.severityColor || "#FFF", 1),
+        }}
+      />
+      <text
+        x="0.8"
+        y="1"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        fill="#111111"
+        fontSize="7"
+        fontWeight="600"
+        style={{ pointerEvents: "none" }}
+      >
+        {region?.sid || ""}
+      </text>
     </g>
   )),
   line: memo(({ region, iw, ih }) => (
@@ -157,8 +177,9 @@ const RegionComponents = {
         {points.map(({ x, y, angle }, i) => (
           <g
             key={i}
-            transform={`translate(${x * iw} ${y * ih}) rotate(${(-(angle || 0) * 180) / Math.PI
-              })`}
+            transform={`translate(${x * iw} ${y * ih}) rotate(${
+              (-(angle || 0) * 180) / Math.PI
+            })`}
           >
             <g>
               <rect
@@ -203,7 +224,8 @@ export const WrappedRegionList = memo(
               ih={ih}
               keypointDefinitions={keypointDefinitions}
               fullSegmentationMode={fullSegmentationMode}
-            /></>
+            />
+          </>
         )
       })
   },
@@ -243,7 +265,6 @@ export const RegionShapes = ({
         fullSegmentationMode={fullSegmentationMode}
       />
     </svg>
-
   )
 }
 
