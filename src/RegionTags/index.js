@@ -108,7 +108,7 @@ export const RegionTags = ({
               ? copyWithout(mouseEvents, "onMouseDown", "onMouseUp")
               : {})}
           >
-            <RegionLabel
+            {/* <RegionLabel
               allowedClasses={regionClsList}
               allowedTags={regionTagList}
               onOpen={onBeginRegionEdit}
@@ -121,7 +121,7 @@ export const RegionTags = ({
               imageSrc={imageSrc}
               onRegionClassAdded={onRegionClassAdded}
               allowComments={allowComments}
-            />
+            /> */}
           </div>
         </div>
       )

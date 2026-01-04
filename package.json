@@ -1,6 +1,6 @@
 {
   "name": "react-image-annotate-master-custom",
-  "version": "0.0.33",
+  "version": "0.0.36",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
     "@fortawesome/free-solid-svg-icons": "^5.6.3",
@@ -53,7 +53,7 @@
     "storybook": "start-storybook -p 9090 -s public",
     "build": "npm run build:babel && cp ./package.json ./dist/package.json && cp ./README.md ./dist/README.md",
     "dist": "npm run build && cd dist && npm publish",
-    "build:babel": "cross-env NODE_ENV=production babel ./src --ignore \"src/**/*.story.js\" --out-dir=./dist && rimraf dist/index.js && copyfiles dist/lib.js dist/index.js",
+    "build:babel": "cross-env NODE_ENV=production babel ./src --ignore \"src/**/*.story.js\" --out-dir=./dist && rm dist/index.js && cp dist/lib.js dist/index.js",
     "build-storybook": "build-storybook",
     "build:gh-pages": "CI=false react-scripts build && mkdir build/demo && cp build/index.html build/demo/index.html",
     "gh-pages": "npm run build:gh-pages && gh-pages -d build",
