@@ -45,7 +45,7 @@ const RegionComponents = {
         fill="#111111"
         fontSize="7"
         fontWeight="600"
-        style={{ pointerEvents: "none" }}
+        style={{ pointerEvents: "none", userSelect: "none" }}
       >
         {region?.sid || ""}
       </text>
